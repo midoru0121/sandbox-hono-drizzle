@@ -1,0 +1,22 @@
+{
+  "name": "hono-drizzle-sandbox",
+  "scripts": {
+    "drizzle-kit:generate": "drizzle-kit generate",
+    "drizzle-kit:migrate": "drizzle-kit migrate",
+    "drizzle-kit:push": "drizzle-kit push",
+    "dev": "tsx watch src/index.ts"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.13.2",
+    "dotenv": "^16.4.5",
+    "drizzle-orm": "^0.34.1",
+    "hono": "^4.6.4",
+    "pg": "^8.13.0",
+    "tsx": "^4.19.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.17",
+    "@types/pg": "^8.11.10",
+    "drizzle-kit": "^0.25.0"
+  }
+}
