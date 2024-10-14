@@ -2,6 +2,7 @@ import { serve } from '@hono/node-server'
 import { Hono } from 'hono'
 import 'dotenv/config';
 import { drizzle } from 'drizzle-orm/connect';
+import { defineRoutes } from './routes';
 
 const app = new Hono()
 
@@ -14,9 +15,8 @@ if (!DB_CONNECTION_STRING) {
 (async() => {
   const db = await drizzle("node-postgres", DB_CONNECTION_STRING);
 
-  app.get('/', (c) => {
-    return c.text('Hello Hono!')
-  })
+  defineRoutes(app, db)
+
   
   const port = 3000
   console.log(`Server is running on port ${port}`)
@@ -25,5 +25,6 @@ if (!DB_CONNECTION_STRING) {
     fetch: app.fetch,
     port
   })  
+
 
 })()
