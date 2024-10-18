@@ -1,10 +1,7 @@
 import { serve } from '@hono/node-server'
-import { Hono } from 'hono'
 import 'dotenv/config';
-import { drizzle } from 'drizzle-orm/connect';
 import { defineRoutes } from './routes';
-
-const app = new Hono()
+import { createHonoApp } from './app';
 
 const DB_CONNECTION_STRING = process.env.DATABASE_URL;
 
@@ -13,11 +10,9 @@ if (!DB_CONNECTION_STRING) {
 }
 
 (async() => {
-  const db = await drizzle("node-postgres", DB_CONNECTION_STRING);
+  const app = await createHonoApp();
+  defineRoutes(app)
 
-  defineRoutes(app, db)
-
-  
   const port = 3000
   console.log(`Server is running on port ${port}`)
   
