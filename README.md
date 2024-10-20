@@ -22,3 +22,9 @@ and
 docker compose exec server pnpm drizzle-kit:generate
 docker compose exec server pnpm drizzle-kit:migrate
 ```
+
+```
+curl -X GET http://localhost:3000/users
+curl -X POST http://localhost:3000/users -H "Content-Type: application/json" -d '{"name": "john", "age": 24, "email": "john@example.com"}'
+```
+

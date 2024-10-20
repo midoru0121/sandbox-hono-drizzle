@@ -20,7 +20,7 @@ export const validateUserCreate = zValidator(
     }
 )
 
-export const userCreate = async (c: Context<AppEnv, "", {
+export const userCreate = async (c: Context<AppEnv, "/users", {
     in: {
         json: {
             name: string;
@@ -41,6 +41,7 @@ export const userCreate = async (c: Context<AppEnv, "", {
         email: ""
     });            
 
+    console.log(`${users.oid} created!`);
     return c.json({ message: "User created" });
 } 
 
