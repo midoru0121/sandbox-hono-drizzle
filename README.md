@@ -1,4 +1,4 @@
-# hono-drizzle-sandbox
+# sandbox-hono-drizzle
 
 ```
 echo db-password > src/db/password.txt
